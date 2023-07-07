@@ -1,2 +1,6 @@
-# oci-devops-project-bg
-For testing blue green deployment in oci cloud
+## Test Locally
+
+```bash
+http://localhost:8090/greetings/actions/hello/Carlos
+```
+
