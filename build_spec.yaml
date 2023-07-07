@@ -15,7 +15,7 @@ steps:
   - type: Command
     name: "Extract the version of the applicacion"
     command: |
-      export APPLICATION_VERSION=$(echo $RANDOM)
+      export APPLICATION_VERSION=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
       echo $APPLICATION_VERSION
       cd ${OCI_PRIMARY_SOURCE_DIR}
       echo Inside of the working directory OCI_PRIMARY_SOURCE_DIR - Working in `pwd`
@@ -41,9 +41,3 @@ outputArtifacts:
   - name: deployment_yaml
     type: BINARY
     location: ${OCI_PRIMARY_SOURCE_DIR}/deployment/artifacts/project-deployment.yaml
-  - name: service_yaml
-    type: BINARY
-    location: ${OCI_PRIMARY_SOURCE_DIR}/deployment/artifacts/project-service.yaml
-  - name: ingress_yaml
-    type: BINARY
-    location: ${OCI_PRIMARY_SOURCE_DIR}/deployment/artifacts/project-ingress.yaml
